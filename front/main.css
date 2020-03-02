@@ -1,0 +1,47 @@
+.accordion {
+    background-color: #fff;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+/*
+.Painels{
+    display: flex;
+    align-items: stretch;
+    background-color: #f1f1f1;
+    max-width: 62.5rem;
+    margin: 0 auto;
+}
+
+.readPainel{
+    flex-grow: 2;
+}
+*/
+.showPainel{
+    background-color: #f1f1f1;
+}
+
+.Painels{
+    display: grid;
+    grid-template-columns: 30% calc(70% - 15px);
+    grid-column-gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
