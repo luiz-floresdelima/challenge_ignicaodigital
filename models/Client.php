@@ -19,7 +19,7 @@ class Client
     public function create()
     {
         $query = "INSERT INTO {$this->table}(nome,email,tag_id)
-            VALUES ('{$this->nome}','{$this->email}',{$this->tag_id})";
+            VALUES ('{$this->nome}','{$this->email}','{$this->tag_id}')";
 
         $stmt = $this->conn->prepare($query);
 
@@ -36,7 +36,7 @@ class Client
         $query = "SELECT c.id,c.nome,c.email,c.tag_id,t.tag,c.dt_criacao
                 FROM {$this->table} c
                 JOIN tags t ON c.tag_id = t.id
-                ORDER BY c.dt_criacao DESC";
+                ORDER BY c.dt_criacao ASC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
 

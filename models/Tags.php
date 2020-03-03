@@ -33,7 +33,7 @@ class Tags
     {
         $query = "SELECT t.id,t.tag
                 FROM {$this->table} t
-                ORDER BY t.dt_criacao DESC";
+                ORDER BY t.dt_criacao ASC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
 

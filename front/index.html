@@ -11,114 +11,34 @@
 <body>
     <div class="Painels">
         <div class="readPainel">
-            <button class="accordion">Section 1</button>
-            <div class="panel">
-                <p>Lorem ipsum1</p>
-            </div>
-
-            <button class="accordion">Section 2</button>
-            <div class="panel">
-                <p>Lorem ipsum2</p>
+            <div id="clients_box" data-type="clientes" data-write="create">
+                <span>Adicionar novos clientes</span>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email">
+                <div class="tags" data-type="tags" data-content="read">
+                </div>
+                <button id="add_client">Adicionar</button>
             </div>
         </div>
         <div class="showPainel">
             <table class="table table-striped table-hover user-list fixed-header">
                 <thead>
                     <th>
-                        <div>Name</div>
+                        <div>Nome</div>
                     </th>
                     <th>
                         <div>Email</div>
                     </th>
                     <th>
-                        <div>Status</div>
+                        <div>Tag</div>
                     </th>
                     <th>
                         <div></div>
                     </th>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Michael Jones</td>
-                        <td>michael@gmail.com</td>
-                        <td>active</td>
-                        <td class="text-right">
-                            <button class="button tiny">View User</button>
-                            <button class="button alert tiny">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Michael Jones</td>
-                        <td>michael@gmail.com</td>
-                        <td>active</td>
-                        <td class="text-right">
-                            <button class="button tiny">View User</button>
-                            <button class="button alert tiny">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Michael Jones</td>
-                        <td>michael@gmail.com</td>
-                        <td>active</td>
-                        <td class="text-right">
-                            <button class="button tiny">View User</button>
-                            <button class="button alert tiny">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Michael Jones</td>
-                        <td>michael@gmail.com</td>
-                        <td>active</td>
-                        <td class="text-right">
-                            <button class="button tiny">View User</button>
-                            <button class="button alert tiny">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Michael Jones</td>
-                        <td>michael@gmail.com</td>
-                        <td>active</td>
-                        <td class="text-right">
-                            <button class="button tiny">View User</button>
-                            <button class="button alert tiny">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Michael Jones</td>
-                        <td>michael@gmail.com</td>
-                        <td>active</td>
-                        <td class="text-right">
-                            <button class="button tiny">View User</button>
-                            <button class="button alert tiny">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Michael Jones</td>
-                        <td>michael@gmail.com</td>
-                        <td>active</td>
-                        <td class="text-right">
-                            <button class="button tiny">View User</button>
-                            <button class="button alert tiny">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Michael Jones</td>
-                        <td>michael@gmail.com</td>
-                        <td>active</td>
-                        <td class="text-right">
-                            <button class="button tiny">View User</button>
-                            <button class="button alert tiny">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Michael Jones</td>
-                        <td>michael@gmail.com</td>
-                        <td>active</td>
-                        <td class="text-right">
-                            <button class="button tiny">View User</button>
-                            <button class="button alert tiny">Delete</button>
-                        </td>
-                    </tr>
+                <tbody data-type="clientes" data-content="read">
                 </tbody>
             </table>
         </div>
