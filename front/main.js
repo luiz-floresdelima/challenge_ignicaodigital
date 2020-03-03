@@ -40,7 +40,7 @@ let req = {
         }
     },
     'read': {
-        'method': 'GET', 'func': (data,local,typo,inst) => {
+        'method': 'GET', 'func': (data, local, typo, inst) => {
             try {
                 let tags = data.data
                 tags.map((item) => (
@@ -66,17 +66,17 @@ let req = {
     }
 }
 
-function requests(x,y) {
+function requests(x, y) {
     let typo = x.getAttribute(`data-type`)
     let inst = x.getAttribute(`data-content`) ? x.getAttribute(`data-content`) : x.getAttribute(`data-write`)
-    let complement = (inst != 'read')? {method:`${req[inst]['method']}`, body:JSON.stringify(y)} : { method:`${req[inst]['method']}`}
+    let complement = (inst != 'read') ? { method: `${req[inst]['method']}`, body: JSON.stringify(y) } : { method: `${req[inst]['method']}` }
     console.log(complement)
     fetch(`${urls}${typo}/${inst}.php`, complement)
         .then(function (response) {
             if (response.status === 200) {
                 console.log(response)
                 response.json().then(function (data) {
-                    req[inst]['func'](data,x,typo,inst);
+                    req[inst]['func'](data, x, typo, inst);
                 });
             }
         })
@@ -97,7 +97,7 @@ let observer = new IntersectionObserver((entries, observer) => {
 
 document.querySelectorAll('[data-content]').forEach(p => { observer.observe(p) });
 
-function CheckedItens(x){
+function CheckedItens(x) {
     let aux = [];
     x.forEach(element => {
         if (element.checked) {
@@ -117,7 +117,24 @@ document.querySelector('#add_client').addEventListener('click', (item) => {
         tag: tags.join(';')
     }
     let table_body = document.querySelector('tbody')
-    requests(pai,infos)
+    requests(pai, infos)
     table_body.innerHTML = ''
     requests(table_body)
+})
+
+document.querySelectorAll('.del_client').forEach(element => {
+    element.addEventListener('click', (item) => {
+        let pai = item.target.parentNode
+        let tags = pai.querySelector('.tags').querySelectorAll('[type="checkbox"]')
+        tags = CheckedItens(tags)
+        let infos = {
+            nome: pai.querySelector('#nome').value,
+            email: pai.querySelector('#email').value,
+            tag: tags.join(';')
+        }
+        let table_body = document.querySelector('tbody')
+        requests(pai, infos)
+        table_body.innerHTML = ''
+        requests(table_body)
+    })
 })
