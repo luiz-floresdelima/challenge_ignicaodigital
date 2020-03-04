@@ -1,5 +1,5 @@
 .showPainel{
-    background-color: #f1f1f1;
+    /* background-color: #f1f1f1; */
 }
 
 .Painels{
@@ -10,19 +10,28 @@
     margin: 0 auto;
 }
 
+#clients_box span{
+    display: block;
+}
+
 table{
     width:100%;
 }
 
 td{
     text-align: center;
+    
+}
+
+tr>td{
+    border-top: 1px solid #ddd;
 }
 
 form span{
     display: block;
 }
 
-input{
+#clients_box input{
     display: block;
 }
 
@@ -30,8 +39,8 @@ input{
     margin-top: 10px;
 }
 
-.tags input{
-    display: inline;
+#clients_box .tags input{
+    display: inline ;
 }
 
 .tags label{
@@ -67,4 +76,9 @@ button.alert{
     background-color: #f04124;
     border-color: #ea2f10;
     color: #fff;
+}
+
+button.success{
+    background-color: #3adb76;
+    color: #0a0a0a;
 }

@@ -33,9 +33,8 @@ class Client
 
     public function read()
     {
-        $query = "SELECT c.id,c.nome,c.email,c.tag_id,t.tag,c.dt_criacao
+        $query = "SELECT c.id,c.nome,c.email,c.tag_id,c.dt_criacao
                 FROM {$this->table} c
-                JOIN tags t ON c.tag_id = t.id
                 ORDER BY c.dt_criacao ASC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -46,7 +45,7 @@ class Client
     public function update()
     {
         $query = "UPDATE {$this->table}
-            SET nome='{$this->nome}',email='{$this->email}',tag_id={$this->tag_id}
+            SET nome='{$this->nome}',email='{$this->email}',tag_id='{$this->tag_id}'
             WHERE id = '{$this->id}'";
 
         $stmt = $this->conn->prepare($query);
@@ -72,5 +71,22 @@ class Client
         printf("Error: %s.\n", $stmt->error);
 
         return false;
+    }
+
+    public function search()
+    {
+        $cond_query = array();
+        ($this->nome)? array_push($cond_query,"c.nome LIKE '%{$this->nome}%'"):"";
+        ($this->email)? array_push($cond_query,"c.email LIKE '%{$this->email}%'"):"";
+        ($this->tag_id)? array_push($cond_query,"c.tag_id LIKE '%{$this->tag_id}%'"):"";
+        $condition = "WHERE " . implode(" OR ", $cond_query);
+        $query = "SELECT c.id,c.nome,c.email,c.tag_id
+                FROM {$this->table} c
+                {$condition}
+                ORDER BY c.dt_criacao ASC";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        return $stmt;
     }
 }
