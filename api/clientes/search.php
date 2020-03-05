@@ -18,7 +18,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 $client->nome = $data->nome;
 $client->email = $data->email;
-$client->tag_id = $data->tag;
+$client->tag_id = (($data->tag == 0 )?"":$data->tag);
 
 $result = $client->search();
 

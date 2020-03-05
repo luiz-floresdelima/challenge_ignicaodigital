@@ -4,30 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Desafio Ignição Digital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="./main.css">
 </head>
 
 <body>
+    <h1>Desafio Ignição Digital</h1>
     <div class="Painels">
         <div class="readPainel">
             <div id="clients_box" data-type="clientes" data-write="create">
-                <span>Adicionar novos clientes</span>
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome">
+                <h2>Adicionar novos clientes</h2>
+                <label for="nome_cli">Nome</label>
+                <input type="text" name="nome_cli" id="nome_cli">
                 <label for="email">Email</label>
                 <input type="text" name="email" id="email">
                 <div class="tags" data-type="tags" data-content="read">
                 </div>
                 <button id="add_client"><i class="fas fa-user-plus"></i></button>
             </div>
+            <div id="tags_box" data-type="tags" data-write="create">
+                <h2>Adicionar novas tags</h2>
+                <label for="nome_tag">Tag</label>
+                <input type="text" name="nome_tag" id="nome_tag">
+                <button id="add_tag"><i class="fas fa-folder-plus"></i></button>
+            </div>
         </div>
         <div class="showPainel">
-            <input type="text" placeholder="Busca" id="procura">
-            <select id="tags_busca">
-            </select>
-            <button id="btn_busca" data-type="clientes" data-write="search"><i class="fas fa-search"></i></button>
+            <div id="busca" data-type="clientes" data-write="search">
+                <input type="text" placeholder="Busca" id="procura">
+                <select id="tags_busca">
+                    <option value="0" selected>Todas as tags</option>
+                </select>
+                <button id="btn_busca"><i class="fas fa-search"></i></button>
+                <div id="buscada_string">
+                </div>
+            </div>
             <table class="table table-striped table-hover user-list fixed-header">
                 <thead>
                     <th>

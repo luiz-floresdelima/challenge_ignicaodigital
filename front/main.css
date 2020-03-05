@@ -1,5 +1,56 @@
+h1{
+    text-align: center;
+    display: block;
+    margin: 15px auto;
+}
+
+#buscada_string span{
+    color: black;
+    display: inline-block;
+    line-height: 1.27rem;
+    vertical-align: top;
+    white-space: nowrap;
+    position: relative !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(153, 153, 153);
+    border-image: initial;
+    margin: 0px 1px;
+    padding: 1px 5px 2px;
+    border-radius: 8px;
+}
+
+#buscada_string span span{
+    padding: 0 0px 0 0;
+    border-color: unset;
+    border-width: unset;
+    border-style: unset;
+    border-image: unset;
+}
+
+#buscada_string span span:nth-child(3){
+    padding: 0 12px 0 0;
+    border-color: unset;
+    border-width: unset;
+    border-style: unset;
+    border-image: unset;
+}
+
+#buscada_string span div{
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    right: 7px;
+    width: 10px !important;
+    height: 10px !important;
+}
+
 .showPainel{
     /* background-color: #f1f1f1; */
+}
+
+.readPainel button{
+    margin-top: 10px;
 }
 
 .Painels{
@@ -10,9 +61,6 @@
     margin: 0 auto;
 }
 
-#clients_box span{
-    display: block;
-}
 
 table{
     width:100%;
@@ -35,6 +83,10 @@ form span{
     display: block;
 }
 
+#clients_box span{
+    display: block;
+}
+
 .tags{
     margin-top: 10px;
 }
@@ -45,6 +97,18 @@ form span{
 
 .tags label{
     margin-right: 15px;
+}
+
+#tags_box{
+    border-top: 1px solid #ddd;
+}
+
+#tags_box input{
+    display: block;
+}
+
+#tags_box span{
+    display: block;
 }
 
 button{
