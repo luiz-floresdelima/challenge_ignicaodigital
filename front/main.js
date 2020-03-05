@@ -212,12 +212,12 @@ function del_btn() {
 function edit_btn() {
     document.querySelectorAll('[data-write="update"]').forEach(element => {
         element.addEventListener('click', (item) => {
-            
             let pai = element.parentNode.parentNode;
             pai.children[0].innerHTML = `<input value="${pai.children[0].textContent}"></input>`
             pai.children[1].innerHTML = `<input value="${pai.children[1].textContent}"></input>`
             let checked = pai.children[2].textContent
             pai.children[2].innerHTML = document.querySelector(".tags").innerHTML
+            console.log(checked)
             if (checked) {
                 checked.split(`;`).forEach(tag => {
                     pai.children[2].querySelector(`input[value="${tag}"]`).checked = true
