@@ -21,6 +21,11 @@ private $username = 'root';
 private $password = '';
 ```
 
+Alterar o caminho da API no arquivo JavaScript do projeto(./front/main.js:1):
+```
+let urls = `http://localhost:8080/challenge_ignicaodigital/api/`;
+```
+
 Acessar o link do APACHE com a pasta (Ex.: http://localhost/challenge_ignicaodigital/front/)
 
 ## Funções
