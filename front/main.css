@@ -79,7 +79,7 @@ form span{
     display: block;
 }
 
-#clients_box input{
+#clients_box > input{
     display: block;
 }
 

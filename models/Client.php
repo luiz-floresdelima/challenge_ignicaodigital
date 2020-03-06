@@ -78,14 +78,16 @@ class Client
         $cond_query = array();
         ($this->nome)? array_push($cond_query,"c.nome LIKE '%{$this->nome}%'"):"";
         ($this->email)? array_push($cond_query,"c.email LIKE '%{$this->email}%'"):"";
-        ($this->tag_id)? array_push($cond_query,"c.tag_id LIKE '%{$this->tag_id}%'"):"";
-        $junc = implode(" OR ", $cond_query);
+        // ($this->tag_id)? array_push($cond_query,"c.tag_id LIKE '%{$this->tag_id}%'"):"";
+        $junc = implode(' OR ', $cond_query);
+        // print_r($junc);
+        $junc = ($junc AND $this->tag_id)? "($junc) AND ": $junc;
+        $junc = ($this->tag_id)? "$junc c.tag_id LIKE '%{$this->tag_id}%'" : $junc;
         $condition = (($junc)?"WHERE " . $junc:"");
         $query = "SELECT c.id,c.nome,c.email,c.tag_id
                 FROM {$this->table} c
                 {$condition}
                 ORDER BY c.dt_criacao ASC";
-        // print_r($query);
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
 

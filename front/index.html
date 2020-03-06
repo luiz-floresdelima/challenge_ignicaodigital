@@ -17,17 +17,17 @@
                 <h2>Adicionar novos clientes</h2>
                 <label for="nome_cli">Nome</label>
                 <input type="text" name="nome_cli" id="nome_cli">
-                <label for="email">Email</label>
-                <input type="text" name="email" id="email">
+                <label for="email_cli">Email</label>
+                <input type="text" name="email_cli" id="email_cli">
                 <div class="tags" data-type="tags" data-content="read">
                 </div>
-                <button id="add_client"><i class="fas fa-user-plus"></i></button>
+                <button id="add_client" onclick="addClient()"><i class="fas fa-user-plus"></i></button>
             </div>
             <div id="tags_box" data-type="tags" data-write="create">
                 <h2>Adicionar novas tags</h2>
                 <label for="nome_tag">Tag</label>
                 <input type="text" name="nome_tag" id="nome_tag">
-                <button id="add_tag"><i class="fas fa-folder-plus"></i></button>
+                <button id="add_tag" onclick="addTag()"><i class="fas fa-folder-plus"></i></button>
             </div>
         </div>
         <div class="showPainel">
@@ -36,7 +36,7 @@
                 <select id="tags_busca">
                     <option value="0" selected>Todas as tags</option>
                 </select>
-                <button id="btn_busca"><i class="fas fa-search"></i></button>
+                <button id="btn_busca" onclick="searchClient()"><i class="fas fa-search"></i></button>
                 <div id="buscada_string">
                 </div>
             </div>
